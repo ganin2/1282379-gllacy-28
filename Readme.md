@@ -1,7 +1,7 @@
 # Личный проект «Глейси»
 
 * Студент: [Коля Ганин](https://up.htmlacademy.ru/htmlcss/28/user/1282379).
-* Наставник: `Неизвестно`.
+* Наставник: [Виктор Кан](https://htmlacademy.ru/profile/viktorkan).
 
 ---
 
