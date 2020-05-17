@@ -11,7 +11,7 @@
     			<img src="#" width="154" height="64" alt="Логотип GllacyShop">
 	    	</a>
     		<ul class="main-nav-list">
-    			<li class="main-nav-item"><a href="">Каталог</a></li>
+    			<li class="main-nav-item"><a href="catalog.html">Каталог</a></li>
     			<li class="main-nav-item"><a href="">Доставка и оплата</a></li>
     			<li class="main-nav-item"><a href="">О компании</a></li>
     		</ul>
@@ -21,13 +21,84 @@
     		<a href="" class="login-link">Вход</a>
     		<a href="" class="cart-link">Пусто</a>
     	</div>
-		<p class="contacts">
+		<p class="header-contacts">
 			с 10 до 20, ежедневно
 			<a href="tel:88124502525">8 812 450-25-25</a>
 		</p>
     </header>
     <main class="main-container"> 	
     	<h1 class="hidden">Магазин мороженного Глейси</h1>
+        <section class="main-promo">
+            <h2 class="main-promo-title">Шоколадный пломбир и&nbsp;лимонный сорбет</h2>
+            <a href="" class="button">Дайте оба!</a>
+        </section>
+        <section class="promo">
+            <ul class="promo-list">
+                <li class="promo-item">
+                    <h3 class="promo-title">Малинка даром!</h3>
+                    <p class="promo-content">При покупке 2&nbsp;кг любого фруктового мороженого, добавим в&nbsp;ваш заказ банку маринового варенья бесплатно.</p>
+                    <a href="" class="button">Хочу варенье!</a>
+                </li>
+                <li class="promo-item">
+                    <h3 class="promo-title">Шоколадки даром!</h3>
+                    <p class="promo-content">При покупке 2&nbsp;кг пломбира, добавим в&nbsp;ваш заказ упаковку вкуснейшей шоколадной присыпки совершенно бесплатно.</p>
+                    <a href="" class="button">Хочу шоколадки!</a>
+                </li>
+            </ul>
+        </section>
+        <section class="catalog">
+            <h2 class="hidden">Продукция</h2>
+            <ul class="catalog-list">
+                <li class="catalog-item">
+                    <article class="product-box">
+                        <a href="" class="product-link">
+                            <h3 class="product-description">Сливочное с апельсиновым джемом и цитрусовой стружкой</h3>
+                            <p class="product-img">
+                                <img src="#" alt="Сливочное с апельсиновым джемом и цитрусовой стружкой" width="267" height="267">
+                            </p>
+                        </a>
+                        <p class="product-price">310 ₽<span class="product-measure">/кг</span></p>
+                        <span class="product-bestseller-label">Хит</span>
+                    </article>
+                </li>
+                <li class="catalog-item">
+                    <article class="product-box">
+                        <a href="" class="product link">
+                            <h3 class="product-description">Сливочно-кофейное с кусочками шоколада</h3>
+                            <p class="product-img">
+                                <img src="#" alt="Сливочно-кофейное с кусочками шоколада" width="267" height="267">
+                            </p>
+                        </a>
+                        <p class="product-price">380 ₽<span class="product-measure">/кг</span></p>
+                        <span class="product-bestseller-label">Хит</span>
+                    </article>
+                </li>
+                <li class="catalog-item">
+                    <article class="product-box">
+                        <a href="" class="product-link">
+                            <h3 class="product-description">Сливочно-клубничное с присыпкой из белого шоколада</h3>
+                            <p class="product-img">
+                                <img src="#" alt="Сливочно-клубничное с присыпкой из белого шоколада" width="267" height="267">
+                            </p>
+                        </a>
+                        <p class="product-price">355 ₽<span class="product-measure">/кг</span></p>
+                        <span class="product-bestseller-label">Хит</span>
+                    </article>
+                </li>
+                <li class="catalog-item">
+                    <article class="product-box">
+                        <a href="" class="product-link">
+                            <h3 class="product-description">Сливочное крем-брюле с карамельной подливкой</h3>
+                            <p class="product-img">
+                                <img src="#" alt="Сливочное крем-брюле с карамельной подливкой" width="267" height="267">
+                            </p>
+                        </a>
+                        <p class="product-price">415 ₽<span class="product-measure">/кг</span></p>
+                        <span class="product-bestseller-label">Хит</span>
+                    </article>
+                </li>
+            </ul>
+        </section>
     	<section class="features">
     		<h2 class="hidden">Преймущества</h2>
     		<p>Магазин Глэйси&nbsp;&mdash; это онлайн и&nbsp;офлайн-магазин по&nbsp;продаже мороженого собственного проиводства на&nbsp;развес</p>
@@ -41,24 +112,34 @@
     	<article class="blog-item">
     		<h3 class="blog-item-title">Новое в нашем блоге</h3>
     		<p>
-    			<a href="#">10&nbsp;способов сервировки фруктовых щербетов к&nbsp;столу</a>
+    			<a href="">10&nbsp;способов сервировки фруктовых щербетов к&nbsp;столу</a>
     		</p>		
     	</article>
-    	<div class="subscribe-form">
+    	<div class="modal-subscribe">
     		<p>Подпишитесь на&nbsp;нашу сладкую рассылку и&nbsp;будьте всегда в&nbsp;курсе всего самого вкусного, что у&nbsp;нас происходит. Обещаем не&nbsp;спамить и&nbsp;не&nbsp;слать всякой ненужной ерунды. Честно =)</p>
     		<form action="#" method="post">
     		  <input type="email" placeholder="email@example.com">
     		  <button type="submit">Отправить</button>
     		</form>
     	</div>
+        <section class="modal-map">
+            <h2 class="hidden">Как добраться</h2>
+            <div id="map"></div>
+            <section class="contacts">
+                <h3 class="hidden">Контактная информация</h3>
+                    <p>Адрес главного офиса и&nbsp;офлайн-магазина:<br><b>ул. Большая Конюшенная, 19/8, Санкт-Петербург</b></p>
+                    <p>Для заказов по&nbsp;телефону:<br><a href="tel:88124502525">8 812 450-25-25</a><br>(с 10 до 20 ежедневно)</p>
+                    <a href="" class="button"></a>
+            </section>
+        </section>
     </main>
     <footer class="main-footer">
     	<div class="footer-left">
     		<ul class="social-list">
     			<li class="social-list-item"><a href="">Фэйсбук</a></li>
-    			<li class="social-list-item"> <a href="">Вконтакте</a></li>
-    			<li class="social-list-item"> <a href="">Инстаграм</a></li>
-    			<li class="social-list-item"> <a href="">Твиттер</a></li>
+    			<li class="social-list-item"><a href="">Вконтакте</a></li>
+    			<li class="social-list-item"><a href="">Инстаграм</a></li>
+    			<li class="social-list-item"><a href="">Твиттер</a></li>
     		</ul>
     	</div>
     	 <div class="footer-middle">
