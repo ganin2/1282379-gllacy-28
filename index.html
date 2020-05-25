@@ -57,6 +57,11 @@
 						<a href="" class="button">Дайте оба!</a>
 					</li>
 				</ul>
+				<div class="switch-buttton-group">
+					<span class="switch-button"></span>
+					<span class="switch-button"></span>
+					<span class="switch-button-active"></span>
+				</div>
 			</section>
 			<section class="promo">
 				<h2 class="hidden">Акции</h2>
@@ -162,8 +167,8 @@
 				<p>Сделано в <a href="https://htmlacademy.ru/intensive/htmlcss">HTML Academy</a> &copy;&nbsp;2019</p>
 			</div>
 		</footer>
-		<form action="https://echo.htmlacademy.ru/courses" method="post">
-			<div class="isuue-modal-group">
+		<div class="isuue-modal-group">
+			<form action="https://echo.htmlacademy.ru/courses" method="post">
 				<div class="modal-item">
 					<label for="user-id" class="hidden">Введите имя и фамилию</label>
 					<input type="text" name="user-id" class="modal-user-id" id="user-id" placeholder="Имя Фамилия" required="required">
@@ -177,7 +182,7 @@
 					<textarea name="info" id="info" cols="30" rows="5" class="modal-info" placeholder="В свободной форме" required="required"></textarea>
 				</div>
 				<button class="modal-button" type="submit">Отправить</button>
-			</div>
-		</form>
+			</form>
+		</div>
 	</body>
 </html>
