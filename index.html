@@ -3,6 +3,9 @@
 	<head>
 		<meta charset="utf-8">
 		<title>HTML Academy: Глейси</title>
+		<link href="css/normalize.css" rel="stylesheet">
+  	<link href="css/style.css" rel="stylesheet">
+  	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<header class="main-header">
@@ -26,35 +29,55 @@
 				</ul>
 			</nav>
 			<div class="user-actions-items">
-				<a href="" class="search-link">Поиск</a>
+			<div class="search-group">
+				<a href="" class="search-link"><span class="hidden">Поиск</span></a>
+				<form class="search-popup" action="https://echo.htmlacademy.ru/courses" method="get">
+					<input class="search-field" type="search" name="search" id="search" placeholder="Что ищем?" aria-label="Поиск по сайту">
+					<button type="submit" class="hidden">Искать!</button>
+				</form>
+			</div>
+			<div class="login-group">
 				<a href="" class="login-link">Вход</a>
+				<form class="login-popup" action="https://echo.htmlacademy.ru/courses" method="post">
+					<div class="login-item">
+						<label for="email" class="hidden"></label>
+						<input class="login-email" type="email" name="email" id="email" placeholder="email@example.com" required="required">
+					</div>
+					<div class="login-item">
+						<label for="password" class="hidden"></label>
+						<input class="login-password" type="password" name="password" id="password" placeholder="******" required="required">
+					</div>
+					<button class="login-button" type="submit">Войти</button>
+					<a href="" target="_blank" class="popup-link">Забыли пароль?</a><br>
+					<a href="" target="_blank" class="popup-link">Новая регистрация</a>
+				</form>
+			</div>
 				<a href="" class="cart-link">Пусто</a>
 			</div>
 			<p class="header-contacts">
-				с 10 до 20, ежедневно
+				с 10 до 20, ежедневно <br>
 				<a href="tel:88124502525">8 812 450-25-25</a>
 			</p>
 		</header>
 		<main class="main-container">
 			<h1 class="hidden">Магазин мороженного Глейси</h1>
 			<section class="main-promo">
-				<h2 class="main-promo-title">Шоколадный пломбир и&nbsp;лимонный сорбет</h2>
-				<a href="" class="button">Дайте оба!</a>
+				<h2 class="hidden">Главные промоакции</h2>
 			</section>
 			<section class="slider">
 				<h2 class="hidden">Слайдер</h2>
 				<ul class="slides-list">
 					<li class="slide-one">
 						<h3 class="slide-title">Крем-брюле и пломбир с малиновым джемом</h3>
-						<a href="" class="button">Дайте оба!</a>
+						<a href="" class="button-large">Давайте оба!</a>
 					</li>
-					<li class="slide-two">
+					<li class="slide-two hidden">
 						<h3 class="slide-title">Шоколадный пломбир и лимонный сорбет</h3>
-						<a href="" class="button">Дайте оба!</a>
+						<a href="" class="button-large">Давайте оба!</a>
 					</li>
-					<li class="slide-three">
+					<li class="slide-three hidden">
 						<h3 class="slide-title">Пломбир с помадкой и клубничный щербет</h3>
-						<a href="" class="button">Дайте оба!</a>
+						<a href="" class="button-large">Давайте оба!</a>
 					</li>
 				</ul>
 				<div class="switch-buttton-group">
@@ -81,29 +104,29 @@
 				<ul class="catalog-list">
 					<li class="catalog-item">
 						<article class="product-box">
-							<img src="img/item01.jpg" alt="Сливочное с апельсиновым джемом и цитрусовой стружкой" width="267" height="267">
-							<a href="" class="product-link"><h3 class="product-description">Сливочное с апельсиновым джемом и цитрусовой стружкой</h3></a>
+							<img class="img-crop" src="img/item01.jpg" alt="Сливочное с апельсиновым джемом и цитрусовой стружкой" width="267" height="267">
+							<h3 class="product-description"><a href="" class="product-link">Сливочное с апельсиновым джемом и цитрусовой стружкой</a></h3>
 							<p class="product-price">310 ₽<span class="product-measure">/кг</span></p>
 						</article>
 					</li>
 					<li class="catalog-item">
 						<article class="product-box">
 							<img class="img-crop" src="img/item02.jpg" alt="Сливочно-кофейное с кусочками шоколада" width="267" height="267" >
-							<a href="" class="product link"><h3 class="product-description">Сливочно-кофейное с кусочками шоколада</h3></a>
+							<h3 class="product-description"><a href="" class="product link">Сливочно-кофейное с кусочками шоколада</a></h3>
 							<p class="product-price">380 ₽<span class="product-measure">/кг</span></p>
 						</article>
 					</li>
 					<li class="catalog-item">
 						<article class="product-box">
 							<img class="img-crop" src="img/item03.jpg" alt="Сливочно-клубничное с присыпкой из белого шоколада" width="267" height="267">
-							<a href="" class="product-link"><h3 class="product-description">Сливочно-клубничное с присыпкой из белого шоколада</h3></a>
+							<h3 class="product-description"><a href="" class="product-link">Сливочно-клубничное с присыпкой из белого шоколада</a></h3>
 							<p class="product-price">355 ₽<span class="product-measure">/кг</span></p>
 						</article>
 					</li>
 					<li class="catalog-item">
 						<article class="product-box">
 							<img class="img-crop" src="img/item04.jpg" alt="Сливочное крем-брюле с карамельной подливкой" width="267" height="267">
-							<a href="" class="product-link"><h3 class="product-description">Сливочное крем-брюле с карамельной подливкой</h3></a>
+							<h3 class="product-description"><a href="" class="product-link">Сливочное крем-брюле с карамельной подливкой</a></h3>
 							<p class="product-price">415 ₽<span class="product-measure">/кг</span></p>
 						</article>
 					</li>
@@ -137,8 +160,13 @@
 				<img src="img/map.jpg" alt="ул. Большая Конюшенная, 19/8, Санкт-Петербург" width="1200" height="430">
 				<section class="contacts">
 					<h3 class="hidden">Контактная информация</h3>
-					<p>Адрес главного офиса и&nbsp;офлайн-магазина:<br><b>ул. Большая Конюшенная, 19/8, Санкт-Петербург</b></p>
-					<p>Для заказов по&nbsp;телефону:<br><a href="tel:88124502525">8 812 450-25-25</a><br>(с 10 до 20 ежедневно)</p>
+					<div class="addres">
+							<div class="contacts-container">
+								<p>Адрес главного офиса и&nbsp;офлайн-магазина:<br>
+								<span>ул. Большая Конюшенная, 19/8, Санкт-Петербург</span></p>
+								<p>Для заказов по&nbsp;телефону:<br><a href="tel:88124502525">8 812 450-25-25</a><br>(с 10 до 20 ежедневно)</p>
+							</div>
+					</div>
 					<a href="" class="button">Форма обратной связи</a>
 				</section>
 			</section>
@@ -154,7 +182,7 @@
 			</div>
 			<div class="footer-middle">
 				<ul class="standards-list">
-					<li class="standards-item-active"><a href="">Для поставщиков</a></li>
+					<li class="standards-item"><a href="">Для поставщиков</a></li>
 					<li class="standards-item"><a href="">О производстве</a></li>
 					<li class="standards-item"><a href="">Наши документы</a></li>
 					<li class="standards-item"><a href="">Экологические стандарты</a></li>
@@ -164,10 +192,10 @@
 				<a href="https://htmlacademy.ru/intensive/htmlcss">
 					<img src="img/logo-htmlacademy.svg" width="108" height="39" alt="Логотип HTML Academy">
 				</a>
-				<p>Сделано в <a href="https://htmlacademy.ru/intensive/htmlcss">HTML Academy</a> &copy;&nbsp;2019</p>
+				<p class="copyright">Сделано в <a href="https://htmlacademy.ru/intensive/htmlcss">HTML Academy</a> &copy;&nbsp;2019</p>
 			</div>
 		</footer>
-		<div class="isuue-modal-group">
+		<div class="feedback-modal-group">
 			<form action="https://echo.htmlacademy.ru/courses" method="post">
 				<div class="modal-item">
 					<label for="user-id" class="hidden">Введите имя и фамилию</label>
