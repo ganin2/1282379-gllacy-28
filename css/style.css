@@ -576,7 +576,7 @@ input[type="radio"].hidden {
   background-repeat: no-repeat;
   background-position: 0 0;
 }
-ы
+
 /* features end */
 
 /* blog-subscribe start */
@@ -653,6 +653,11 @@ input[type="radio"].hidden {
 }
 
 /* blog-subscribe end */
+
+.feedback-contacts,
+.feedback-modal-group {
+  display: none;
+}
 
 .pagination-list {
   display: flex;
