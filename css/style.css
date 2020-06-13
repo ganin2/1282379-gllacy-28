@@ -3,7 +3,7 @@
 :root {
   --bg-green: #849d8f;
 
-  --text-white: #ffffff;
+  --basic-white: #ffffff;
   --text-black: #323232;
   --text-grey: #5a5a5a;
 
@@ -11,6 +11,24 @@
   --hover-extra-orange: #e84d37;
 
   --subscribe-bg: #f8f7f4;
+
+  --white20: rgba(255, 255, 255, 0.2) ;
+
+  --underline: 1px solid ;
+  --hover-underline: 1px solid var(--hover-orange);
+  --active-underline: 1px solid var(--hover-extra-orange);
+
+  --active-nav-bg: #ededed;
+  --active-nav-shadow: inset 0px 2px 1px #696969;
+
+  --current-orange: #d07058;
+
+  --button-bg: linear-gradient(180deg, #F26843 0%, #E74A35 100%);
+  --button-shadow: 0px 2px 2px rgba(172, 16, 0, 0.64);
+  --button-text-shadow:  0px 2px 5px rgba(160, 32, 11, 0.76);
+
+  --black-border: #353535;
+
 }
 
 /* Fonts */
@@ -54,7 +72,7 @@ body {
 
   font-weight: 700;
   font-family: "Roboto", Arial, sans-serif;
-  color: var(--text-white);
+  color: var(--basic-white);
 
   background-color: var(--bg-green);
   background-repeat: no-repeat;
@@ -62,8 +80,10 @@ body {
 }
 
 a {
+  color: var(--basic-white);
   text-decoration: none;
 }
+
 
 /* img {
   max-width: 100%;
@@ -110,6 +130,7 @@ input[type="radio"].hidden {
 /* Header start*/
 
 .logo {
+  margin-right: 11px;
   padding-top: 9px;
 }
 
@@ -139,48 +160,96 @@ input[type="radio"].hidden {
   list-style: none;
 }
 
+.header-nav-item {
+  padding: 9px 13px 11px 13px;
+
+  background-color: transparent;
+  border-radius: 26px;
+  /* cursor: pointer; */
+}
+
+
+.header-nav-item:not(:last-of-type) {
+  margin-right: 6px;
+}
+
+
 .header-nav-item a {
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
   line-height: 18px;
-  color: var(--text-white);
+
+  border-bottom: var(--underline);
 }
 
-.header-nav-item:not(:last-of-type) {
-  margin-right: 32px;
+.header-nav-item:hover,
+.header-nav-item:focus {
+  background-color: var(--basic-white);
+}
+
+.header-nav-item:active {
+  background-color: var(--active-nav-bg);
+  box-shadow: var(--active-nav-shadow);
+}
+
+.header-nav-item:hover a,
+.header-nav-item:focus a,
+.header-nav-item:active a {
+  color: var(--text-black);
+
+  border: none;
+}
+
+.header-nav-item-current {
+  background-color: var(--current-orange);
+}
+
+.header-nav-item-current a {
+  border: none;
 }
 
 .user-actions-group {
   display: flex;
   justify-content: space-between;
-  /* padding-top: 29px; */
+}
+
+.user-actions-group div:not(:last-child) {
+  margin-right: 10px;
 }
 
 .user-actions-group a:not(first-child) {
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
-  color: var(--text-white);
 }
 
 .search a {
   position: relative;
 
-  padding-left: 30px;
+  padding: 8px 25px 8px 8px;
+
+  background-color: var(--white20);
+  border-radius: 20px;
 }
 
-.search a::after {
+.search a::before {
   content: "";
   position: absolute;
+  top: 7px;
+  left: 6px;
 
   width: 20px;
   height: 19px;
 
   background-image: url("../img/loupe.svg");
   background-repeat: no-repeat;
-  background-position: 0 0;
+  background-position: top center;
+  border-radius: 50%;
 }
+
+
+
 
 .search-popup {
   display: none;
@@ -189,12 +258,17 @@ input[type="radio"].hidden {
 .login a {
   position: relative;
 
-  padding-left: 30px;
+  padding: 8px 16px 8px 45px;
+
+  background-color: var(--white20);
+  border-radius: 20px;
 }
 
 .login a::before {
   content: "";
   position: absolute;
+  top: 6px;
+  left: 16px;
 
   width: 20px;
   height: 19px;
@@ -211,12 +285,17 @@ input[type="radio"].hidden {
 .basket {
   position: relative;
 
-  padding-left: 30px;
+  padding: 8px 16px 8px 45px;
+
+  background-color: var(--white20);
+  border-radius: 20px;
 }
 
 .basket-empty::before {
   content: "";
   position: absolute;
+  top: 6px;
+  left: 16px;
 
   width: 21px;
   height: 20px;
@@ -229,6 +308,8 @@ input[type="radio"].hidden {
 .basket-full::before {
   content: "";
   position: absolute;
+  top: 6px;
+  left: 16px;
 
   width: 21px;
   height: 20px;
@@ -238,14 +319,24 @@ input[type="radio"].hidden {
   background-position: 0 0;
 }
 
+.search a:hover::before,
+.login a:hover::before,
+.basket-empty:hover::before {
+  filter: invert(100%);
+}
+
+.user-actions-group a:hover {
+  color: var(--text-black);
+
+  background-color: var(--basic-white);
+}
+
 .basket-popup {
   display: none;
 }
 
 
 .header-contacts {
-  margin-left: auto;
-
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
@@ -254,16 +345,21 @@ input[type="radio"].hidden {
   grid-column: 3/4;
 }
 
+p.header-contacts {
+  margin: 0;
+  padding: 0;
+}
+
+
 .header-contacts a {
   font-weight: bold;
   font-size: 22px;
   line-height: 24px;
-  color: var(--text-white);
 }
 
-.header-contacts {
-  margin: 0;
-  padding: 0;
+.header-contacts a:hover,
+.header-contacts:focus {
+  color: var(--hover-orange);
 }
 
 /* header submenu start */
@@ -309,13 +405,27 @@ input[type="radio"].hidden {
 
 
 .breadcrumbs-item a {
-  position: relative;
-
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
-  color: var(--text-white);
+
+  border-bottom: var(--underline);
+}
+
+.breadcrumbs-item a:hover,
+.breadcrumbs-item a:focus {
+  color: var(--hover-orange);
+
+  border-bottom: var(--hover-underline);
+}
+
+
+.breadcrumbs-item span {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
 }
 
 .breadcrumbs-item:not(:last-child)::before {
@@ -363,6 +473,8 @@ input[type="radio"].hidden {
 }
 
 .promo {
+  display: flex;
+  flex-flow: column wrap;
   box-sizing: border-box;
   padding: 16px 22px 22px 16px;
 
@@ -371,6 +483,7 @@ input[type="radio"].hidden {
 
 .promo h3 {
   margin: 0;
+  margin-bottom: 16px;
   padding: 0;
 
   font-weight: bold;
@@ -380,6 +493,7 @@ input[type="radio"].hidden {
 
 .promo p {
   margin: 0;
+  margin-bottom: 42px;
   padding: 0;
 
   font-weight: bold;
@@ -398,6 +512,27 @@ input[type="radio"].hidden {
   background-repeat: repeat;
   background-position: top center;
 }
+
+.button {
+  display: inline-block;
+  box-sizing: border-box;
+  margin-left: auto;
+  padding: 11px 22px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  text-shadow: var(--button-text-shadow);
+
+  background: var(--button-bg);
+  border-radius: 70px;
+  box-shadow: var(--button-shadow);
+}
+
+
+
+
 
 /*  promo end */
 
@@ -438,10 +573,11 @@ input[type="radio"].hidden {
   background-position: 0 0;
 }
 
-.catalog h3 {
+.catalog h3,
+.catalog-hits h3 {
   margin: 0;
   padding: 0;
-  padding-top: 13px;
+  padding-top: 10px;
   /* так надо было отспить или margin-bottom для img? */
 
   text-align: center;
@@ -451,10 +587,21 @@ input[type="radio"].hidden {
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
-  color: var(--text-white);
+
+  border-bottom: var(--underline);
+}
+
+.catalog-list a:hover,
+.catalog-list a :focus {
+  color: var(--hover-orange);
+
+  border-bottom: var(--hover-underline);
 }
 
 .catalog-list p {
+  position: absolute;
+  bottom: 70px;
+
   margin: 0;
   padding: 0;
 
@@ -462,7 +609,7 @@ input[type="radio"].hidden {
   font-weight: bold;
   font-size: 45px;
   line-height: 45px;
-  color: #ffffff;
+  color: var(--basic-white);
   text-shadow: 0 1px 3px rgba(49, 50, 53, 0.5);
 }
 
@@ -471,7 +618,6 @@ input[type="radio"].hidden {
   font-weight: bold;
   font-size: 30px;
   line-height: 35px;
-  color: var(--text-white);
 }
 
 .catalog-list img {
@@ -532,6 +678,8 @@ input[type="radio"].hidden {
 .features-list-item:nth-child(1)::before {
   content: "";
   position: absolute;
+  top: 11px;
+  left: 0;
 
   width: 49px;
   height: 49px;
@@ -544,18 +692,8 @@ input[type="radio"].hidden {
 .features-list-item:nth-child(2)::before {
   content: "";
   position: absolute;
-
-  width: 49px;
-  height: 49px;
-
-  background-image: url("../img/eco.svg");
-  background-repeat: no-repeat;
-  background-position: 0 0;
-}
-
-.features-list-item:nth-child(3)::before {
-  content: "";
-  position: absolute;
+  top: 11px;
+  left: 0;
 
   width: 49px;
   height: 49px;
@@ -565,9 +703,25 @@ input[type="radio"].hidden {
   background-position: 0 0;
 }
 
+.features-list-item:nth-child(3)::before {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 0;
+
+  width: 49px;
+  height: 49px;
+
+  background-image: url("../img/eco.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
 .features-list-item:nth-child(4)::before {
   content: "";
   position: absolute;
+  top: 11px;
+  left: 0;
 
   width: 49px;
   height: 49px;
@@ -590,7 +744,20 @@ input[type="radio"].hidden {
   grid-template-columns: repeat(2, 1fr);
 }
 
+.blog-item {
+  box-sizing: border-box;
+  min-height: 220px;
+  padding: 20px;
+
+  background-color: var(--basic-white);
+  background-image: url("../img/bg03.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  border-radius: 16px;
+}
+
 .blog-item p {
+  max-width: 290px;
   margin: 0;
   padding: 0;
 }
@@ -612,24 +779,29 @@ input[type="radio"].hidden {
   font-size: 24px;
   line-height: 30px;
   color: var(--text-black);
+
+  border-bottom: 2px solid var(--black-border);
 }
 
-.blog-item {
-  padding: 20px;
+.blog-item a:hover,
+.blog-item a:focus,
+.blog-item a:active {
+  color: var(--hover-extra-orange);
 
-  background-color: #ffffff;
-  background-image: url("../img/bg03.jpg");
-  background-repeat: no-repeat;
-  background-position: top center;
-  border-radius: 16px;
+  border-bottom: 2px solid var(--hover-orange);
 }
+
 
 .modal-subscribe-border {
+  box-sizing: border-box;
+  min-height: 220px;
   padding: 5px 6px;
 
   background-image: url("../img/bg-post.svg");
   background-repeat: repeat;
   background-position: top center;
+  -webkit-background-size: cover;
+  background-size: cover;
   border-radius: 16px;
 }
 
@@ -640,6 +812,7 @@ input[type="radio"].hidden {
   background-color: var(--subscribe-bg);
   border-radius: 16px;
 }
+
 
 .modal-subscribe p {
   margin: 0;
@@ -669,7 +842,7 @@ input[type="radio"].hidden {
 
   list-style: none;
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid var(--white20);
   /* такой цвет тоже в кастомные? или можно как то opacity применить? цвет ток в олдном месте используется */
 }
 
@@ -684,9 +857,8 @@ input[type="radio"].hidden {
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 12px;
+  line-height: 18px;
   text-align: center;
-  color: var(--text-white);
 
   border-radius: 26px;
 }
@@ -695,6 +867,7 @@ input[type="radio"].hidden {
 
 .main-footer {
   display: grid;
+  padding-bottom: 25px;
 
   grid-template-columns: auto 1fr auto;
 }
@@ -707,6 +880,7 @@ input[type="radio"].hidden {
   max-width: 180px;
   margin: 0;
   padding: 0;
+  padding-top: 23px;
 
   list-style: none;
 }
@@ -750,18 +924,31 @@ input[type="radio"].hidden {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  padding: 0;
+  padding-top: 20px;
+  padding-left: 20px;
 
   list-style: none;
 }
 
-.standards-item a {
-  padding-left: 32px;
+.standards-item:not(:last-child) {
+  margin-right: 32px;
+}
 
+
+
+.standards-item a {
   font-weight: normal;
   font-size: 13px;
   line-height: 18px;
-  color: var(--text-white);
+
+  border-bottom: var(--underline);
+}
+
+.standards-item a:hover,
+.standards-item a:focus {
+  color: var(--hover-orange);
+
+  border-bottom: var(--hover-underline);
 }
 
 a.standards-item-bold {
@@ -773,6 +960,8 @@ a.standards-item-bold {
 .standards-item-bold::before {
   content: "";
   position: absolute;
+  top: 1px;
+  left: -21px;
 
   width: 15px;
   height: 13px;
@@ -791,7 +980,11 @@ a.standards-item-bold {
   font-weight: normal;
   font-size: 12px;
   line-height: 18px;
-  color: var(--text-white);
+}
+
+p.copyright {
+  margin: 0;
+  padding: 0;
 }
 
 .copyright a {
@@ -799,5 +992,13 @@ a.standards-item-bold {
   font-weight: normal;
   font-size: 12px;
   line-height: 18px;
-  color: var(--text-white);
+
+  border-bottom: var(--underline);
+}
+
+.copyright a:hover,
+.copyright a:focus {
+  color: var(--hover-orange);
+
+  border-bottom: var(--hover-underline);
 }
