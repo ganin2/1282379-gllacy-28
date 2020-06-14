@@ -195,31 +195,34 @@ input[type="radio"].hidden {
 
 .header-nav-item:hover ,
 .header-nav-item:focus {
-  background-color: var(--basic-white);
   padding: 0;
-    padding: 9px 0px 11px 0px;
+  padding: 9px 0 11px 0;
+
+  background-color: var(--basic-white);
 }
 
 .header-nav-item:active {
+  padding: 9px 0 11px 0;
+
   background-color: var(--active-nav-bg);
   box-shadow: var(--active-nav-shadow);
-  padding: 9px 0px 11px 0px;
 }
 
-.header-nav-item:hover a ,
+.header-nav-item:hover a:not(.header-nav-current) ,
 .header-nav-item:focus a ,
 .header-nav-item:active a {
+  padding: 9px 13px 11px 13px;
+
   color: var(--text-black);
 
   border: none;
-  padding: 9px 13px 11px 13px;
 }
 
-.header-nav-item-current {
+.header-nav-current {
   background-color: var(--current-orange);
 }
 
-.header-nav-item-current a {
+.header-nav-current a {
   border: none;
 }
 
@@ -424,13 +427,10 @@ p.header-contacts {
 .breadcrumbs-list {
   display: flex;
   flex-wrap: wrap;
-  margin: 0;
+  margin-top: -20px;
   padding: 0;
 
   list-style: none;
-  position: absolute;
-  top: 97px;
-  left: 267px;
 }
 
 .breadcrumbs-item:not(:last-child) {
@@ -474,6 +474,12 @@ p.header-contacts {
   background-image: url("../img/breadcrumbs-arrow.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
+}
+
+.catalog-title {
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 41px;
 }
 
 /* Filter start */
@@ -580,7 +586,7 @@ p.header-contacts {
 /* catalog */
 
 .catalog {
-  margin-bottom: 80px;
+  margin-bottom: 83px;
 }
 
 .catalog-hits {
@@ -834,19 +840,16 @@ p.header-contacts {
 }
 
 .modal-subscribe-border {
-  box-sizing: border-box;
-  min-height: 220px;
   padding: 5px 6px;
 
   background-image: url("../img/bg-post.svg");
   background-repeat: repeat;
   background-position: top center;
-  -webkit-background-size: cover;
-          background-size: cover;
   border-radius: 16px;
 }
 
 .modal-subscribe {
+  box-sizing: border-box;
   height: 100%;
   padding: 29px 16px 35px 20px;
 
@@ -877,23 +880,32 @@ p.header-contacts {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
-  margin: 0;
   padding: 0;
   padding-bottom: 30px;
 
   list-style: none;
 
   border-bottom: 1px solid var(--white20);
-  /* такой цвет тоже в кастомные? или можно как то opacity применить? цвет ток в олдном месте используется */
 }
 
-.pagination-item:not(:last-child) {
+
+.pagination-item:not(:nth-last-child(-n+2)) {
   margin-right: 4px;
 }
 
+.pagination-item:nth-last-child(-n+2) {
+  margin-right: 18px;
+}
+
+
 .pagination-item a {
-  display: block;
-  padding: 7px 8px;
+  display: flex;
+  align-items: center;
+  /*   justify-content: center; */
+  box-sizing: border-box;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 8px;
 
   font-style: normal;
   font-weight: 500;
@@ -902,6 +914,54 @@ p.header-contacts {
   text-align: center;
 
   border-radius: 26px;
+}
+
+.pagination-current a {
+  color: var(--text-black);
+
+  background-color: var(--basic-white);
+  cursor: default;
+
+  pointer-events: none;
+}
+
+.pagination-item:not(.pagination-current) a:hover ,
+.pagination-item:not(.pagination-current) a:focus {
+  background-color: var(--white20);
+}
+
+.pagination-item:not(.pagination-current) a:active {
+  color: var(--text-black);
+
+  background-color: var(--basic-white);
+}
+
+.pagination-button-prev a {
+  display: block;
+  box-sizing: border-box;
+  min-width: 7px;
+  height: 26px;
+  margin-right: 16px;
+
+  background-image: url("../img/icon-right-small.svg");
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  transform: rotate(180deg);
+  cursor: default;
+  opacity: 0.2;
+
+  pointer-events: none;
+}
+
+.pagination-button-next a {
+  display: block;
+  box-sizing: border-box;
+  min-width: 7px;
+  height: 26px;
+
+  background-image: url("../img/icon-right-small.svg");
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
 }
 
 /* Footer start */
