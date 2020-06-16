@@ -12,9 +12,14 @@
 
   --subscribe-bg: #f8f7f4;
 
-  --white20: rgba(255, 255, 255, 0.2) ;
+  --white20: rgba(255, 255, 255, 0.2);
+  --white50: rgba(255, 255, 255, 0.5);
+  --white80: rgba(255, 255, 255, 0.8);
 
-  --underline: 1px solid ;
+  --toggle-grey: #ababab;
+  --toggle-grey30: rgba(171, 171, 171, 0.3);
+
+  --underline: 1px solid;
   --hover-underline: 1px solid var(--hover-orange);
   --active-underline: 1px solid var(--hover-extra-orange);
 
@@ -27,17 +32,17 @@
   --button-extra-orange: #e74a35;
 
   --button-bg: linear-gradient(180deg, var(--button-orange) 0%,
-   var(--button-extra-orange) 100%);
+    var(--button-extra-orange) 100%);
   --button-shadow: 0px 2px 2px rgba(172, 16, 0, 0.64);
-  --button-text-shadow:  0px 2px 5px rgba(160, 32, 11, 0.76);
+  --button-text-shadow: 0px 2px 5px rgba(160, 32, 11, 0.76);
 
-  --hover-button-orange: linear-gradient(0deg, var(--white20), var(--white20)), 
-  linear-gradient(180deg, var(--button-orange) 0%, var(--button-extra-orange) 100%);
-  --hover-button-shadow:  0px 1px 2px #AC1000;
+  --hover-button-orange: linear-gradient(0deg, var(--white20), var(--white20)),
+    linear-gradient(180deg, var(--button-orange) 0%, var(--button-extra-orange) 100%);
+  --hover-button-shadow: 0px 1px 2px #AC1000;
 
   --active-button-orange: linear-gradient(0deg, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.07)),
-   linear-gradient(180deg, var(--button-orange) 0%, var(--button-extra-orange) 100%);
-   --active-button-shadow: inset 0px 2px 2px #942718;
+    linear-gradient(180deg, var(--button-orange) 0%, var(--button-extra-orange) 100%);
+  --active-button-shadow: inset 0px 2px 2px #942718;
 
   --black-border: #353535;
 
@@ -46,7 +51,6 @@
 /* Fonts */
 
 @font-face {
-  font-style: normal;
   font-weight: 400;
   font-family: "Roboto";
 
@@ -56,7 +60,6 @@
 }
 
 @font-face {
-  font-style: normal;
   font-weight: 500;
   font-family: "Roboto";
 
@@ -66,7 +69,6 @@
 }
 
 @font-face {
-  font-style: normal;
   font-weight: 700;
   font-family: "Roboto";
 
@@ -185,7 +187,6 @@ input[type="radio"].hidden {
 }
 
 .header-nav-item a {
-  font-style: normal;
   font-weight: bold;
   font-size: 16px;
   line-height: 18px;
@@ -440,7 +441,6 @@ p.header-contacts {
 }
 
 .breadcrumbs-item a {
-  font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
@@ -456,7 +456,6 @@ p.header-contacts {
 }
 
 .breadcrumbs-item span {
-  font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
@@ -477,6 +476,8 @@ p.header-contacts {
 }
 
 .catalog-title {
+  margin-bottom: 28px;
+
   font-weight: bold;
   font-size: 35px;
   line-height: 41px;
@@ -484,19 +485,329 @@ p.header-contacts {
 
 /* Filter start */
 
+.main-filter {
+  margin-bottom: 40px;
+}
+
 .main-filter-wrapper {
   display: flex;
   flex-wrap: wrap;
+
+  font-weight: 500;
 }
 
-.fat-content-list ,
-.fillings-list {
+.main-filter-wrapper h3 {
+  margin: 0;
+  margin-bottom: 6px;
+  padding: 0;
+  padding-left: 16px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.filter-group {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+
+
+.filter-group label {
+  margin-bottom: 6px;
+  padding-left: 16px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.filter-group select {
+  height: 36px;
+  margin-right: 15px;
+  padding: 0 35px 0 16px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  color: var(--basic-white);
+
+  background-color: var(--white20);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+     -moz-appearance: none;
+}
+
+.filter-hover {
+  position: relative;
+}
+
+.filter-hover::before {
+  content: "";
+  position: absolute;
+  right: 29px;
+  bottom: 12px;
+
+  width: 11px;
+  height: 10px;
+
+  background-image: url("../img/select-arrow.svg");
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.filter-hover:hover select {
+  color: var(--text-black);
+}
+
+.filter-hover:hover::before {
+  filter: invert(100%);
+}
+
+.filter-hover:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--hover-orange);
+}
+
+.range-filter {
+  width: 218px;
+  margin-right: 15px;
+}
+
+.range-title {
+  margin: 0;
+  margin-bottom: 6px;
+  padding: 0;
+}
+
+.range-controls {
+  position: relative;
+
+  box-sizing: border-box;
+  height: 36px;
+  padding: 17px 21px 0 21px;
+
+  background-color: var(--white20);
+  border-radius: 20px ;
+}
+
+.range-controls .scale {
+  height: 2px;
+
+  background: var(--white50);
+}
+
+.range-controls .bar {
+  width: 70%;
+  height: 2px;
+
+  background: var(--basic-white);
+}
+
+.range-controls .toggle {
+  position: absolute;
+  top: 8px;
+
+  width: 20px;
+  height: 20px;
+  padding: 0;
+
+  background-color: var(--toggle-grey);
+  border: 8px solid var(--basic-white);
+  border-radius: 50%;
+  box-shadow: 0 2px 1px 0 var(--toggle-grey30);
+  cursor: pointer;
+}
+
+.range-controls .toggle-min {
+  left: 34px;
+}
+
+.range-controls .toggle-max {
+  left: 132px;
+}
+
+.fat-content-list {
   display: flex;
   flex-flow: row wrap;
   margin: 0;
-  padding: 0;
+  padding: 10px 17px 8px 14px ;
 
   list-style: none;
+
+  background-color: var(--white20);
+  border-radius: 20px;
+}
+
+.fat-list-item {
+  outline: none;
+}
+
+.fat-content-item:not(:last-child) {
+  margin-right: 19px ;
+}
+
+.fat-radio {
+  position: absolute;
+
+  -webkit-appearance: none;
+}
+
+.fat-radio + .radio-icon {
+  position: absolute;
+
+  width: 22px;
+  height: 22px;
+  margin-top: -2px;
+  margin-left: -33px;
+
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 4px var(--basic-white);
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.fat-radio:checked + .radio-icon {
+  background-color: transparent;
+  background-image: url("../img/radio-on.svg");
+  opacity: 0.8;
+}
+
+.fat-radio:focus + .radio-icon {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--hover-orange);
+}
+
+.fat-radio:hover + .radio-icon {
+  opacity: 1;
+}
+
+.fat-radio:disabled + .radio-icon {
+  opacity: 0.4;
+}
+
+.fat-content-item label {
+  position: relative;
+
+  padding-left: 33px;
+}
+
+.range-filter ,
+.fat-content-group ,
+.filter-group {
+  margin-bottom: 16px;
+}
+
+.fillings-list {
+  display: flex;
+  margin: 0;
+  margin-right: 15px;
+  padding: 8px 19px 10px 16px;
+
+  list-style: none;
+  font-weight: 500;
+
+  background-color: var(--white20);
+  border-radius: 20px;
+}
+
+.fillings-item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.fillings-item:nth-child(2) {
+  margin-right: 25px;
+}
+
+.fillings-item:nth-child(3) {
+  margin-right: 25px;
+}
+
+.fillings-item:nth-child(4) {
+  margin-right: 22px;
+}
+
+.fillings-item label {
+  padding-left: 32px;
+}
+
+.fillings-checkbox {
+  position: absolute;
+
+  -webkit-appearance: none ;
+}
+
+.checkbox {
+  cursor: pointer;
+}
+
+.fillings-checkbox + .checkbox {
+  position: absolute;
+
+  width: 21px;
+  height: 20px;
+  margin-top: 1px;
+  margin-left: -32px;
+
+  background-image: url("../img/checkbox-off.svg");
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
+
+.fillings-checkbox:checked + .checkbox {
+  background-image: url("../img/checkbox-on.svg");
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
+
+.fillings-checkbox:focus + .checkbox {
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px var(--hover-orange);
+}
+
+.fillings-checkbox:hover + .checkbox {
+  opacity: 1;
+}
+
+.fillings-checkbox:disabled + .checkbox {
+  opacity: 0.4;
+}
+
+
+
+
+
+.filter-button {
+  align-self: flex-end;
+  box-sizing: border-box;
+  padding: 7px 27px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  color: var(--basic-white);
+
+  background-color: var(--white20);
+  border: 2px solid var(--basic-white);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.filter-button:hover ,
+.filter-button:focus {
+  color: var(--text-black);
+
+  background-color: var(--basic-white);
+}
+
+.filter-button:active {
+  border: none;
+  box-shadow: var(--active-nav-shadow);
 }
 
 /* Filter end */
@@ -559,7 +870,6 @@ p.header-contacts {
   margin-left: auto;
   padding: 11px 22px;
 
-  font-style: normal;
   font-weight: bold;
   font-size: 18px;
   line-height: 24px;
@@ -586,7 +896,7 @@ p.header-contacts {
 /* catalog */
 
 .catalog {
-  margin-bottom: 83px;
+  margin-bottom: 77px;
 }
 
 .catalog-hits {
@@ -600,7 +910,7 @@ p.header-contacts {
 
   list-style: none;
 
-  gap: 40px 26px;
+  gap: 35px 26px;
   grid-template-columns: repeat(auto-fit, 267px);
 }
 
@@ -653,7 +963,6 @@ p.header-contacts {
   margin: 0;
   padding: 0;
 
-  font-style: normal;
   font-weight: bold;
   font-size: 45px;
   line-height: 45px;
@@ -662,7 +971,6 @@ p.header-contacts {
 }
 
 .catalog-list span {
-  font-style: normal;
   font-weight: bold;
   font-size: 30px;
   line-height: 35px;
@@ -814,7 +1122,6 @@ p.header-contacts {
   margin: 0;
   padding: 0;
 
-  font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
@@ -822,7 +1129,6 @@ p.header-contacts {
 }
 
 .blog-item a {
-  font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 30px;
@@ -862,7 +1168,6 @@ p.header-contacts {
   margin: 0;
   padding: 0;
 
-  font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 22px;
@@ -881,7 +1186,7 @@ p.header-contacts {
   flex-flow: row wrap;
   justify-content: flex-end;
   padding: 0;
-  padding-bottom: 30px;
+  padding-bottom: 28px;
 
   list-style: none;
 
@@ -907,7 +1212,6 @@ p.header-contacts {
   height: 26px;
   padding: 0 8px;
 
-  font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 18px;
@@ -981,7 +1285,7 @@ p.header-contacts {
   max-width: 180px;
   margin: 0;
   padding: 0;
-  padding-top: 23px;
+  padding-top: 28px;
 
   list-style: none;
 }
@@ -1025,7 +1329,7 @@ p.header-contacts {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  padding-top: 20px;
+  padding-top: 25px;
   padding-left: 20px;
 
   list-style: none;
@@ -1071,11 +1375,10 @@ a.standards-item-bold {
 }
 
 .footer-right {
-  padding-top: 15px;
+  padding-top: 18px;
 }
 
 .copyright {
-  font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 18px;
@@ -1087,7 +1390,6 @@ p.copyright {
 }
 
 .copyright a {
-  font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 18px;

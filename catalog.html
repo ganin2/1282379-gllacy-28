@@ -97,34 +97,55 @@
         <div class="main-filter-wrapper">
           <div class="filter-group">
             <label class="filter-group-title" for="filter-options">Сортировка</label>
-            <select name="filter-opton" id="filter-options">
-              <option class="filter-option" value="popular">По популярности</option>
-              <option class="filter-option" value="down-price">Сначала недорогие</option>
-              <option class="filter-option" value="up-price">Сначала дорогие </option>
-              <option class="filter-option" value="fat-content">По жирности</option>
-            </select>
+            <div class="filter-hover">
+              <select name="filter-option" id="filter-options" class="filter-hover">
+                <option class="option-item" value="popular">по популярности</option>
+                <option class="option-item" value="down-price">сначала недорогие</option>
+                <option class="option-item" value="up-price">сначала дорогие </option>
+                <option class="option-item" value="fat-content">по жирности</option>
+              </select>
+            </div>
           </div>
-          <div class="range-slider">
-            <!-- ползунок -->
+          <div class="range-filter">
+            <h3 class="range-title">Цена: 100 ₽ – 500 ₽</h3>
+            <div class="range-controls">
+              <div class="scale">
+                <div class="bar" style=" width: 55%; margin-left: 15%;"></div>
+              </div>
+              <button type="button" class="toggle toggle-min" style="left: 34px;"></button>
+              <button type="button" class="toggle toggle-max" style="left: 132px;"></button>
+            </div>
           </div>
           <div class="fat-content-group">
             <h3 class="fat-content-title">Жирность</h3>
             <ul class="fat-content-list">
               <li class="fat-content-item">
-                <input type="radio" name="fat-content" value="zero-fat" id="zero-fat">
-                <label for="zero-fat">0 %</label>
+                <label tabindex="0">
+                  <input class="fat-radio" type="radio" name="fat-content" value="zero-fat">
+                  <span class="radio-icon"></span>
+                  0%
+                </label>
               </li>
               <li class="fat-content-item">
-                <input type="radio" name="fat-content" value="low-fat" id="low-fat">
-                <label for="low-fat">до 10 %</label>
+                <label tabindex="0">
+                  <input class="fat-radio" type="radio" name="fat-content" value="low-fat">
+                  <span class="radio-icon"></span>
+                  до 10%
+                </label>
               </li>
               <li class="fat-content-item">
-                <input type="radio" name="fat-content" value="medium-fat" id="medium-fat">
-                <label for="medium-fat">до 30 %</label>
+                <label tabindex="0">
+                  <input class="fat-radio" type="radio" name="fat-content" value="medium-fat">
+                  <span class="radio-icon"></span>
+                  до 30%
+                </label>
               </li>
               <li class="fat-content-item">
-                <input type="radio" name="fat-content" value="max-fat" id="max-fat">
-                <label for="max-fat">выше 30 %</label>
+                <label tabindex="0">
+                  <input class="fat-radio" type="radio" name="fat-content" value="max-fat">
+                  <span class="radio-icon"></span>
+                  выше 30%
+                </label>
               </li>
             </ul>
           </div>
@@ -132,24 +153,39 @@
             <h3 class="fillings-title">Наполнители</h3>
             <ul class="fillings-list">
               <li class="fillings-item">
-                <input type="checkbox" name="chocolate" id="chocolate" checked="checked">
-                <label for="chocolate">Шоколадные</label>
+                <label>
+                  <input class="fillings-checkbox" type="checkbox" name="chocolate" checked="checked">
+                  <span class="checkbox"></span>
+                  шоколадные
+                </label>
               </li>
               <li class="fillings-item">
-                <input type="checkbox" name="sugar-powders" id="sugar-powders" checked="checked">
-                <label for="sugar-powders">Сахарные присыпки</label>
+                <label>
+                  <input class="fillings-checkbox" type="checkbox" name="sugar-powders" checked="checked">
+                  <span class="checkbox"></span>
+                  сахарные присыпки
+                </label>
               </li>
               <li class="fillings-item">
-                <input type="checkbox" name="fruits" id="fruits">
-                <label for="fruits">Фрукты</label>
+                <label>
+                  <input class="fillings-checkbox" type="checkbox" name="fruits">
+                  <span class="checkbox"></span>
+                  фрукты
+                </label>
               </li>
               <li class="fillings-item">
-                <input type="checkbox" name="syrups" id="syrups">
-                <label for="syrups">Сиропы</label>
+                <label>
+                  <input class="fillings-checkbox" type="checkbox" name="syrups">
+                  <span class="checkbox"></span>
+                  сиропы
+                </label>
               </li>
               <li class="fillings-item">
-                <input type="checkbox" name="jams" id="jams">
-                <label for="jams">Джемы</label>
+                <label>
+                  <input class="fillings-checkbox" type="checkbox" name="jams">
+                  <span class="checkbox"></span>
+                  джемы
+                </label>
               </li>
             </ul>
           </div>
