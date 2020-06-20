@@ -30,6 +30,7 @@
   --modal-bg: #f8f7f4;
   --modal-border: 1px solid rgba(178, 178, 178, 0.52);
   --modal-placeholder: #999999;
+  --modal-shadow:  0px 20px 20px rgba(0, 0, 0, 0.4);
 
   --toggle-grey: #ababab;
   --toggle-grey30: rgba(171, 171, 171, 0.3);
@@ -218,7 +219,7 @@ a {
   margin-right: 6px;
 }
 
-.header-nav-item a {
+.header-nav-item > a {
   font-weight: bold;
   font-size: 16px;
   line-height: 18px;
@@ -260,11 +261,13 @@ a {
 }
 
 .user-actions-group {
+  position: relative;
+
   display: flex;
   justify-content: space-between;
 }
 
-.user-actions-group div:not(:last-child) {
+.user-actions-group div:not(.login-item):not(:last-child) {
   margin-right: 10px;
 }
 
@@ -277,7 +280,10 @@ a {
 .search a {
   position: relative;
 
-  padding: 8px 25px 8px 8px;
+  display: block;
+  min-width: 16px;
+  height: 16px;
+  padding: 8px;
 
   background-color: var(--white20);
   border-radius: 20px;
@@ -290,68 +296,166 @@ a {
 }
 
 .search a::before {
-  content: "";
+  content: url("../img/loupe2.svg");
   position: absolute;
-  top: 7px;
-  left: 6px;
 
-  width: 20px;
-  height: 19px;
-
-  background-image: url("../img/loupe.svg");
-  background-repeat: no-repeat;
-  background-position: top center;
-  border-radius: 50%;
+  width: 16px;
+  height: 16px;
 }
 
 .search a:hover::before {
   filter: invert(100%);
 }
 
+/* Search Pop-up */
+
 .search-popup {
+  position: absolute;
+
   display: none;
+  box-sizing: border-box;
+  width: 341px;
+  height: 84px;
+  padding: 20px 15px ;
+
+  background-color: var(--modal-bg);
+  border-radius: 4px;
+  box-shadow: var(--modal-shadow);
 }
 
-.login a {
+.search-popup input {
+  width: 311px;
+  height: 44px;
+  padding: 15px;
+
+  border: var(--modal-border);
+  border-radius: 4px;
+}
+
+.search-popup input::placeholder {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--modal-placeholder);
+}
+
+.login > a {
   position: relative;
 
+  display: block;
   padding: 8px 16px 8px 45px;
 
   background-color: var(--white20);
   border-radius: 20px;
 }
 
-.login a:hover {
+.login > a:hover {
   color: var(--black);
 
   background-color: var(--white);
 }
 
-.login a::before {
-  content: "";
+.login > a::before {
+  content: url("../img/entrance.svg");
   position: absolute;
   top: 6px;
   left: 16px;
-
-  width: 20px;
-  height: 19px;
-
-  background-image: url("../img/entrance.svg");
-  background-repeat: no-repeat;
-  background-position: 0 0;
 }
 
-.login a:hover::before {
+.login > a:hover::before {
   filter: invert(100%);
 }
 
+/* Login Pop-up */
+
 .login-popup {
   display: none;
+  position: absolute;
+  z-index: 1;
+
+  box-sizing: border-box;
+  width: 277px;
+  min-height: 214px;
+  padding: 18px;
+
+  background-color: var(--modal-bg);
+  border-radius: 4px;
+  box-shadow: var(--modal-shadow);
 }
+
+.login-popup input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 44px;
+  padding: 15px ;
+
+  border: var(--modal-border);
+  border-radius: 4px;
+}
+
+.login-popup input::placeholder {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--modal-placeholder);
+}
+
+.login-popup .button {
+  padding: 14px 25px;
+
+  font-size: 18px;
+  line-height: 16px;
+}
+
+
+.login-popup ul {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.login-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.login-item:last-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-help {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+}
+
+.login-help a {
+  border-bottom: 1px solid black;
+}
+
+.login-help a {
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: var(--black);
+}
+
+.login-help a:hover ,
+.login-help a:focus {
+  color: var(--extra-orange);
+
+  border-bottom: var(--active-underline);
+}
+
+/* Basket */
 
 .basket {
   position: relative;
 
+  display: block;
   padding: 8px 16px 8px 45px;
 
   background-color: var(--white20);
@@ -365,17 +469,10 @@ a {
 }
 
 .basket-empty::before {
-  content: "";
+  content: url("../img/basket.svg");
   position: absolute;
   top: 6px;
   left: 16px;
-
-  width: 21px;
-  height: 20px;
-
-  background-image: url("../img/basket.svg");
-  background-repeat: no-repeat;
-  background-position: 0 0;
 }
 
 /*.basket-empty:hover::before {
@@ -389,21 +486,96 @@ a {
 }
 
 .basket-full::before {
-  content: "";
+  content: url("../img/basket-red.svg");
   position: absolute;
   top: 6px;
   left: 16px;
-
-  width: 21px;
-  height: 20px;
-
-  background-image: url("../img/basket-red.svg");
-  background-repeat: no-repeat;
-  background-position: 0 0;
 }
 
 .basket-popup {
-  display: none;
+  width: 539px;
+  min-height: 242px;
+  background: var(--modal-bg);
+  border-radius: 4px;
+  color: var(--black);
+  font-weight: normal;
+  padding: 20px 15px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.basket-popup a{
+  color: var(--black);
+  font-weight: normal;
+  font-size: 13px;
+line-height: 16px;
+max-width: 216px;
+}
+
+.basket-popup span{
+  color: var(--black);
+  font-weight: normal;
+  font-size: 13px;
+line-height: 16px;
+}
+
+.basket-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.basket-item {
+  display: flex;
+  align-items: center;
+}
+
+.basket-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.basket-item .delete-button {
+
+  display: inline-block;
+  box-sizing: border-box;
+  width: 11px;
+  height: 11px;
+
+  vertical-align: top;
+
+  background-color: transparent;
+  background-image: url("../img/cross-small.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  border: none;
+  cursor: pointer;
+  opacity: 0.6;
+  position: absolute;
+  left: 20px;
+}
+
+.delete-button:hover ,
+.delete-button:focus {
+  opacity: 1;
+
+}
+
+.basket-item img {
+  margin-right: 13px;
+  padding-left: 25px;
+}
+
+.basket-item a {
+  margin-right: 30px;
+}
+
+.basket-item span:not(:last-child) {
+  margin-right: 25px;
+
+}
+
+.basket-total {
+  text-align: right;
 }
 
 .header-contacts {
@@ -431,10 +603,18 @@ p.header-contacts {
   color: var(--hover-orange);
 }
 
+/* Catalog Drop-down */
+
 .catalog-drop-down {
   display: none;
+  position: absolute;
   margin: 0;
   padding: 0;
+  width: 143px;
+  min-height: 171px;
+  background-color: var(--modal-bg);
+  border-radius: 4px;
+  box-sizing: border-box;
 
   list-style: none;
 }
@@ -449,6 +629,7 @@ p.header-contacts {
 .drop-down-item-bold a {
   font-weight: bold;
 }
+
 
 /* Slider */
 
@@ -1353,6 +1534,7 @@ p.header-contacts {
 .feedback-modal-group {
   position: fixed;
 
+  display: none;
   box-sizing: border-box;
   padding: 15px 25px 26px 24px;
 
