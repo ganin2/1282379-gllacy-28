@@ -9,6 +9,7 @@
   --white: #ffffff;
   --black: #323232;
   --grey: #5a5a5a;
+  --light-grey: #c4c4c4;
   --wine: #800000;
   --chocolate: #3d2017;
 
@@ -90,7 +91,7 @@ body {
   margin: 0 auto;
   padding: 0;
 
-  font-weight: 700;
+  font-weight: normal;
   font-family: "Roboto", Arial, sans-serif;
   color: var(--white);
 
@@ -277,6 +278,10 @@ a {
   line-height: 16px;
 }
 
+.search:hover .search-popup {
+  display: block;
+}
+
 .search a {
   position: relative;
 
@@ -339,6 +344,10 @@ a {
   color: var(--modal-placeholder);
 }
 
+.login:hover .login-popup {
+  display: block;
+}
+
 .login > a {
   position: relative;
 
@@ -369,10 +378,10 @@ a {
 /* Login Pop-up */
 
 .login-popup {
-  display: none;
   position: absolute;
   z-index: 1;
 
+  display: none;
   box-sizing: border-box;
   width: 277px;
   min-height: 214px;
@@ -452,6 +461,10 @@ a {
 
 /* Basket */
 
+.basket-group:hover .basket-popup {
+  display: block;
+}
+
 .basket {
   position: relative;
 
@@ -492,77 +505,93 @@ a {
   left: 16px;
 }
 
+/* Basket Full Popup */
+
 .basket-popup {
+  position: absolute;
+
+  display: none;
+  box-sizing: border-box;
   width: 539px;
   min-height: 242px;
+  padding: 20px 15px;
+
+  font-weight: normal;
+  color: var(--black);
+
   background: var(--modal-bg);
   border-radius: 4px;
-  color: var(--black);
-  font-weight: normal;
-  padding: 20px 15px;
-  box-sizing: border-box;
-  position: relative;
 }
 
-.basket-popup a{
-  color: var(--black);
+
+.basket-popup a {
+  width: 216px;
+  padding-top: 10px;
+
   font-weight: normal;
   font-size: 13px;
-line-height: 16px;
-max-width: 216px;
+  line-height: 16px;
+  color: var(--black);
 }
 
-.basket-popup span{
-  color: var(--black);
+.basket-popup span {
+  padding-top: 10px;
+
   font-weight: normal;
   font-size: 13px;
-line-height: 16px;
+  line-height: 16px;
+  color: var(--black);
 }
 
 .basket-list {
-  padding: 0;
   margin: 0;
+  padding: 0;
+
   list-style: none;
 }
 
 .basket-item {
   display: flex;
-  align-items: center;
+  padding-left: 5px;
 }
 
 .basket-item:not(:last-child) {
   margin-bottom: 20px;
 }
 
-.basket-item .delete-button {
+.basket-item:last-child {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
 
-  display: inline-block;
-  box-sizing: border-box;
+  border-bottom: 1px solid var(--light-grey);
+}
+
+.basket-item .delete-button {
+  position: relative; /* плохой способ? */
+  top: 10px;
+
   width: 11px;
   height: 11px;
+  margin-right: 10px;
+  padding-top: 10px; /* не работает? */
 
-  vertical-align: top;
-
+  background: url("../img/cross-small.svg") no-repeat   ;
   background-color: transparent;
-  background-image: url("../img/cross-small.svg");
-  background-repeat: no-repeat;
-  background-position: top center;
   border: none;
   cursor: pointer;
   opacity: 0.6;
-  position: absolute;
-  left: 20px;
 }
 
 .delete-button:hover ,
 .delete-button:focus {
   opacity: 1;
-
 }
 
 .basket-item img {
-  margin-right: 13px;
-  padding-left: 25px;
+  align-self: flex-start;
+  margin-right: 12px;
+
+  border-radius: 50%;
 }
 
 .basket-item a {
@@ -570,12 +599,32 @@ line-height: 16px;
 }
 
 .basket-item span:not(:last-child) {
-  margin-right: 25px;
+  margin-right: 27px;
+}
 
+.basket-item .basket-item-price {
+  color: var(--light-grey);
 }
 
 .basket-total {
   text-align: right;
+}
+
+.basket-total span {
+  display: block;
+  margin-bottom: 15px;
+  padding: 0;
+
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 16px;
+}
+
+.basket-total .button {
+  padding: 13px 15px;
+
+  font-size: 18px;
+  line-height: 16px;
 }
 
 .header-contacts {
@@ -606,17 +655,19 @@ p.header-contacts {
 /* Catalog Drop-down */
 
 .catalog-drop-down {
-  display: none;
   position: absolute;
-  margin: 0;
-  padding: 0;
+
+  display: none;
+  box-sizing: border-box;
   width: 143px;
   min-height: 171px;
-  background-color: var(--modal-bg);
-  border-radius: 4px;
-  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 
   list-style: none;
+
+  background-color: var(--modal-bg);
+  border-radius: 4px;
 }
 
 .drop-down-item a {
@@ -1613,12 +1664,9 @@ p.header-contacts {
 }
 
 .close {
-  display: inline-block;
   box-sizing: border-box;
   width: 18px;
   height: 17px;
-
-  vertical-align: top;
 
   background-color: transparent;
   background-image: url("../img/cross-big.svg");
