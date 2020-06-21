@@ -523,26 +523,6 @@ a {
   border-radius: 4px;
 }
 
-
-.basket-popup a {
-  width: 216px;
-  padding-top: 10px;
-
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 16px;
-  color: var(--black);
-}
-
-.basket-popup span {
-  padding-top: 10px;
-
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 16px;
-  color: var(--black);
-}
-
 .basket-list {
   margin: 0;
   padding: 0;
@@ -596,6 +576,27 @@ a {
 
 .basket-item a {
   margin-right: 30px;
+   width: 216px;
+  padding-top: 10px;
+
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--black);
+}
+
+.basket-item a:hover, 
+.basket-item a:focus {
+  color: var(--hover-extra-orange);
+}
+
+.basket-item span {
+   padding-top: 10px;
+
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--black);
 }
 
 .basket-item span:not(:last-child) {
