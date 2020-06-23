@@ -38,6 +38,8 @@
   --modal-placeholder: #999999;
   --modal-shadow:  0px 20px 20px rgba(0, 0, 0, 0.4);
 
+  --card-shadow:  0px 20px 20px rgba(0, 0, 0, 0.2);
+
   --toggle-grey: #ababab;
   --toggle-grey30: rgba(171, 171, 171, 0.3);
 
@@ -99,8 +101,8 @@ body {
   font-weight: normal;
   font-family: "Roboto", Arial, sans-serif;
   color: var(--white);
+  /*   background-color: var(--bg-green); */
 
-/*   background-color: var(--bg-green); */
   background-repeat: no-repeat;
   background-position: top center;
 }
@@ -129,6 +131,28 @@ a {
 
 .catalog-body {
   background-color: var(--bg-green);
+}
+
+.site-wrapper {
+  width: 1200px;
+
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.site-wrapper-green {
+  background-color: var(--bg-green);
+  background-image: url("../img/slide01.png");
+}
+
+.site-wrapper-brown {
+  background-color: var(--bg-brown);
+  background-image: url("../img/slide02.png");
+}
+
+.site-wrapper-blue {
+  background-color: var(--bg-blue);
+  background-image: url("../img/slide03.png");
 }
 
 .container {
@@ -255,7 +279,6 @@ a {
   outline: none;
 }
 
-
 .header-nav-item:not(.header-nav-current):not(.drop-down-item) > a:active {
   /* !!! */
   background-color: var(--active-nav-bg);
@@ -270,8 +293,6 @@ a {
 .header-nav-item:not(.header-nav-current):focus-within span {
   border: none;
 }
-
-
 
 .header-nav-current span {
   border: none;
@@ -867,7 +888,7 @@ p.header-contacts {
   cursor: pointer;
 }
 
-.toggle-group button:not(.toggle-current):hover,
+.toggle-group button:not(.toggle-current):hover ,
 .toggle-group button:not(.toggle-current):focus {
   background-color: var(--white40);
 }
@@ -1087,7 +1108,7 @@ p.header-contacts {
 .toggle:focus {
   transform: scale(1.1);
 
-  transition: transform 250ms;
+  transition: transform 250ms ease-out;
 }
 
 .fat-content-list {
@@ -1376,7 +1397,7 @@ p.header-contacts {
   text-align: center;
 }
 
-.catalog-list a {
+.catalog-list a:not(.button) {
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
@@ -1384,11 +1405,11 @@ p.header-contacts {
   border-bottom: var(--underline);
 }
 
-.catalog-list a:hover ,
-.catalog-list a:focus {
+.product-description:hover a:not(.button),
+.product-description:focus-within a:not(.button) {
   color: var(--hover-orange);
-
   border-bottom: var(--hover-underline);
+
 }
 
 .catalog-list p {
@@ -1415,35 +1436,39 @@ p.header-contacts {
   border-radius: 50%;
 }
 
-.site-wrapper {
-  width: 1200px;
-
-  background-repeat: no-repeat;
-  background-position: top center;
-}
-
-.site-wrapper-green {
-  background-color: var(--bg-green);
-  background-image: url("../img/slide01.png");
-}
-
-.site-wrapper-brown {
-  background-color: var(--bg-brown);
-  background-image: url("../img/slide02.png");
-}
-
-.site-wrapper-blue {
-  background-color: var(--bg-blue);
-  background-image: url("../img/slide03.png");
-}
-
 /* Card */
+
+.product-box:hover .card ,
+.product-box:focus-within .card {
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+  }
 
 .card {
   position: absolute;
+  top: -5px;
+  bottom: 0;
+  left: -13px;
+ 
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  box-sizing: border-box;
+  width: 293px;
+  min-height: 402px;
+  padding-bottom: 20px;
+
+  background-color: var(--white20);
+  border-radius: 4px;
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  z-index: 1;
+
 }
-.product-box .button {
-  padding: 12px 16px;
+
+.card .button {
+  padding: 10px 16px;
 
   font-size: 18px;
   line-height: 24px;
@@ -1673,6 +1698,7 @@ p.header-contacts {
 
 .feedback-map {
   position: relative;
+
   width: 1200px;
   margin: 0 auto;
 }
@@ -1734,21 +1760,20 @@ p.header-contacts {
 
 .feedback-modal-group {
   position: fixed;
+  top: 338px;
+  right: 0;
+  bottom: auto;
+  left: 0;
 
   display: none;
-margin: auto;
   box-sizing: border-box;
+  width: 476px;
+  margin: auto;
   padding: 15px 25px 26px 24px;
 
   background-color: var(--modal-bg);
   border-radius: 6px;
-  width: 476px;
-  top: 338px;
-  bottom: auto;
-  right: 0;
-  left: 0;
 }
-
 
 .feedback-modal-group h3 {
   margin: 0;
