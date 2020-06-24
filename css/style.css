@@ -245,7 +245,7 @@ a {
 }
 
 .header-nav {
-  position: relative;
+
 
   display: -webkit-box;
   display: -ms-flexbox;
@@ -277,13 +277,13 @@ a {
 
   display: block;
   width: 100%;
-  height: 8px;
-
-  background-color: red;
+  height: 5px;
 }
 
 .header-nav-item {
   margin-right: 6px;
+  position: relative;
+  cursor: pointer;
 }
 
 .header-nav-item > a {
@@ -331,7 +331,6 @@ a {
 }
 
 .user-actions-group {
-  position: relative;
 
   display: -webkit-box;
   display: -ms-flexbox;
@@ -341,6 +340,10 @@ a {
   justify-content: space-between;
 }
 
+.user-actions-group > div {
+    position: relative;
+}
+
 .user-actions-group > div::after {
   content: "";
   position: absolute;
@@ -348,7 +351,6 @@ a {
   width: 100%;
   height: 5px;
 
-  background-color: black;
 }
 
 .user-actions-group div:not(.login-item):not(:last-child) {
@@ -359,6 +361,7 @@ a {
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
+
 }
 
 .search a {
@@ -383,7 +386,7 @@ a {
 
 
 .search a::before {
-  content: url("../img/loupe2.svg");
+  content: url("../img/loupe.svg");
   position: absolute;
 
   width: 16px;
@@ -396,6 +399,10 @@ a {
           filter: invert(100%);
 }
 
+.search button {
+  display: none;
+}
+
 /* Search Pop-up */
 
 .search:hover .search-popup ,
@@ -405,7 +412,7 @@ a {
 
 .search-popup {
   position: absolute;
-  right: 213px;
+  right: 0;
 
   display: none;
   -webkit-box-sizing: border-box;
@@ -506,7 +513,7 @@ a {
 
 .login-popup {
   position: absolute;
-  right: 109px;
+  right: 0px;
   z-index: 5;
 
   display: none;
@@ -1599,7 +1606,7 @@ p.header-contacts {
 
 .catalog-list p {
   position: absolute;
-  bottom: 70px;
+  top: 209px;
 
   margin: 0;
   padding: 0;
@@ -1629,8 +1636,8 @@ p.header-contacts {
 
   opacity: 1;
 
-  -webkit-transition: opacity 0.25s ease;
-          transition: opacity 0.25s ease;
+  -webkit-transition: opacity 0.5s ease;
+          transition: opacity 0.5s ease;
 }
 
 .card {
@@ -1652,7 +1659,7 @@ p.header-contacts {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 293px;
-  min-height: 402px;
+  min-height: 124%;
   padding-bottom: 20px;
 
   background-color: var(--white20);
