@@ -1,7 +1,7 @@
 var feedbackOverlay = document.querySelector(".modal-overlay");
 var feedbackPopup = feedbackOverlay.querySelector(".feedback-modal-group");
 var feedbackLink = document.querySelector(".feedback-link");
-var feedbackClose = document.querySelector(".feedback-close");
+var feedbackClose = document.querySelector(".feedback-close-button");
 var form = feedbackOverlay.querySelector("form");
 var nameField = feedbackOverlay.querySelector("[name=user-id]");
 var emailField = feedbackOverlay.querySelector("[name=email");
@@ -21,6 +21,7 @@ try {
 feedbackLink.addEventListener("click", function(evt) {
   evt.preventDefault();
   feedbackOverlay.classList.add("modal-show");
+  feedbackPopup.classList.remove("feedback-close");
   if (storageName || storageEmail) {
     nameField.value = storageName;
     emailField.value = storageEmail;
@@ -36,8 +37,11 @@ feedbackLink.addEventListener("click", function(evt) {
 
 feedbackClose.addEventListener("click", function(evt) {
   evt.preventDefault();
-  feedbackOverlay.classList.remove("modal-show");
   feedbackPopup.classList.remove("feedback-err");
+  feedbackPopup.classList.add("feedback-close");
+  setTimeout(function() {
+    feedbackOverlay.classList.remove("modal-show");
+  }, 600);
 });
 
 window.addEventListener("keydown", function(evt) {
