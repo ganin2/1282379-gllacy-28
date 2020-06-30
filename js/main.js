@@ -72,3 +72,21 @@ form.addEventListener("submit", function(evt) {
     }
   }
 });
+
+ymaps.ready(init);
+
+function init() {
+  var myMap = new ymaps.Map("map", {
+    center: [59.93929, 30.32944],
+    zoom: 16,
+    controls: ['zoomControl']
+  });
+  myPlacemark = new ymaps.Placemark([59.938635, 30.323118], {
+    hintContent: 'Магазин мороженного Глейси',
+  }, {
+    iconLayout: 'default#image',
+    iconImageHref: 'img/pin.svg',
+    iconImageSize: [80, 140],
+    iconImageOffset: [-40, -140]
+  }), myMap.geoObjects.add(myPlacemark)
+}
