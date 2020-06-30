@@ -2217,8 +2217,8 @@ p.header-contacts {
   opacity: 0.5;
 }
 
-.feedback-close:hover ,
-.feedback-close:focus {
+.feedback-close-button:hover ,
+.feedback-close-button:focus {
   opacity: 1;
 }
 
