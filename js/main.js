@@ -11,6 +11,15 @@ let isStorageSupport = true;
 let storageName = "";
 let storageEmail = "";
 
+let slides = document.querySelectorAll(".slide");
+let dots = document.querySelectorAll(".slide-toggle");
+let wrapper = document.querySelector(".site-wrapper");
+let wrappers = ["site-wrapper-green", "site-wrapper-blue", "site-wrapper-brown"];
+      
+let index = 0;
+
+// Feedback Popup
+
 const popupClose = () => {
   feedbackPopup.classList.remove("feedback-err");
   feedbackPopup.classList.add("feedback-close");
@@ -71,20 +80,71 @@ form.addEventListener("submit", function(evt) {
   }
 });
 
-ymaps.ready(init);
+// Map
 
 function init() {
   var myMap = new ymaps.Map("map", {
     center: [59.93929, 30.32944],
     zoom: 16,
-    controls: ['zoomControl']
+    controls: ["zoomControl"]
   });
   myPlacemark = new ymaps.Placemark([59.938635, 30.323118], {
-    hintContent: 'Магазин мороженного Глейси',
+    hintContent: "Магазин мороженного Глейси",
   }, {
-    iconLayout: 'default#image',
-    iconImageHref: 'img/pin.svg',
+    iconLayout: "default#image",
+    iconImageHref: "img/pin.svg",
     iconImageSize: [80, 140],
     iconImageOffset: [-40, -140]
   }), myMap.geoObjects.add(myPlacemark)
 }
+ymaps.ready(init);
+
+// Slider
+
+const activeSlide = n => {
+  for (slide of slides) {
+    slide.classList.remove("slide-current");
+
+  }
+  slides[n].classList.add("slide-current");
+}
+
+const activeToggle = n => {
+  for (dot of dots) {
+    dot.classList.remove("slide-toggle-current");
+  }
+  dots[n].classList.add("slide-toggle-current");
+}
+
+const changeWrapper = () => {
+  for (var i = 0; i < wrappers.length; i++) 
+      wrapper.classList.remove(wrappers[i])
+      wrapper.classList.add(wrappers[index]);
+}
+
+const nextSlide = () => {
+  if (index == slides.length - 1) {
+    index = 0;
+    prepareCurrentSlide(index);
+  } else {
+    index++;
+    prepareCurrentSlide(index);
+  }
+
+}
+
+const prepareCurrentSlide = ind => {
+  activeSlide(ind);
+  activeToggle(ind);
+  changeWrapper();
+}
+
+dots.forEach((item, indexDot) => {
+  item.addEventListener("click", () => {
+    index = indexDot;
+    prepareCurrentSlide(index);
+    clearInterval(interval);
+  })
+});
+
+const interval = setInterval(nextSlide, 2500);

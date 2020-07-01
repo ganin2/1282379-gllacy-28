@@ -137,10 +137,10 @@ a {
   align-content: start;
   min-height: 100%;
 
-  -ms-grid-rows:         min-content 1fr min-content;
   -ms-grid-rows: -webkit-min-content 1fr -webkit-min-content;
-  grid-template-rows:         min-content 1fr min-content;
+  -ms-grid-rows:         min-content 1fr min-content;
   grid-template-rows: -webkit-min-content 1fr -webkit-min-content;
+  grid-template-rows:         min-content 1fr min-content;
 }
 
 .catalog-body {
@@ -157,16 +157,28 @@ a {
 .site-wrapper-green {
   background-color: var(--bg-green);
   background-image: url("../img/slide01.png");
+
+  -webkit-transition: 1s ease;
+
+  transition: 1s ease;
 }
 
 .site-wrapper-brown {
   background-color: var(--bg-brown);
   background-image: url("../img/slide02.png");
+
+  -webkit-transition: 1s ease;
+
+  transition: 1s ease;
 }
 
 .site-wrapper-blue {
   background-color: var(--bg-blue);
   background-image: url("../img/slide03.png");
+
+  -webkit-transition: 1s ease;
+
+  transition: 1s ease;
 }
 
 .container {
@@ -1026,14 +1038,24 @@ p.header-contacts {
   cursor: pointer;
 }
 
+.toggle-group button:hover ,
+.toggle-group button:focus {
+  outline: none;
+}
+
 .toggle-group button:not(.slide-toggle-current):hover ,
 .toggle-group button:not(.slide-toggle-current):focus {
   background-color: var(--white40);
+  outline: none;
 }
 
 .toggle-group .slide-toggle-current {
   background-color: var(--white);
   cursor: default;
+
+  -webkit-transition: 0.5s ease;
+
+  transition: 0.5s ease;
 }
 
 /* Breadcrumbs*/
@@ -1951,6 +1973,7 @@ p.header-contacts {
 
 .feedback-map {
   position: relative;
+
   width: 1200px;
   height: 430px;
 }
@@ -1964,11 +1987,12 @@ p.header-contacts {
 
 .yandex-map {
   position: relative;
+  z-index: 2;
+
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-  z-index: 2;
 }
 
 .pin {
@@ -2471,7 +2495,6 @@ p.header-contacts {
 .main-footer {
   display: -ms-grid;
   display:     grid;
-
   padding-bottom: 25px;
 
   -ms-grid-columns: auto 1fr auto;
