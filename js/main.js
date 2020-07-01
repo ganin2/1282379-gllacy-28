@@ -89,7 +89,7 @@ function init() {
     controls: ["zoomControl"]
   });
   myPlacemark = new ymaps.Placemark([59.938635, 30.323118], {
-    hintContent: "Магазин мороженного Глейси",
+    hintContent: "Магазин мороженного Глейси:<br>ул. Большая Конюшенная, 19/8, Санкт-Петербург",
   }, {
     iconLayout: "default#image",
     iconImageHref: "img/pin.svg",

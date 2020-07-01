@@ -21,17 +21,15 @@
   --chocolate: #3d2017;
   --beige: #efe4d0;
   --light-blue: #92cdff;
-
   --orange: #f26843;
   --extra-orange: #e74a35;
-  
-  --hover-orange: #ffbc9e;
-
-  --hover-extra-orange: #e84d37;
 
   --white20: rgba(255, 255, 255, 0.2);
   --white40: rgba(255, 255, 255, 0.4);
   --white50: rgba(255, 255, 255, 0.5);
+
+  --hover-orange: #ffbc9e;
+  --hover-extra-orange: #e84d37;
 
   --nav-current-orange: #d07058;
 
