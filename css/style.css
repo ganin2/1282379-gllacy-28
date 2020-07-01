@@ -2471,9 +2471,7 @@ p.header-contacts {
 .main-footer {
   display: -ms-grid;
   display:     grid;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+
   padding-bottom: 25px;
 
   -ms-grid-columns: auto 1fr auto;

@@ -12,6 +12,8 @@ let storageName = "";
 let storageEmail = "";
 
 const popupClose = () => {
+  feedbackPopup.classList.remove("feedback-err");
+  feedbackPopup.classList.add("feedback-close");
   setTimeout(function() {
     feedbackOverlay.classList.remove("modal-show");
     feedbackPopup.classList.remove("feedback-close");
@@ -43,8 +45,6 @@ feedbackLink.addEventListener("click", function(evt) {
 
 feedbackClose.addEventListener("click", function(evt) {
   evt.preventDefault();
-  feedbackPopup.classList.remove("feedback-err");
-  feedbackPopup.classList.add("feedback-close");
   popupClose();
 });
 
@@ -52,8 +52,6 @@ window.addEventListener("keydown", function(evt) {
   if (evt.keyCode === 27) {
     if (feedbackOverlay.classList.contains("modal-show")) {
       evt.preventDefault();
-      feedbackPopup.classList.remove("feedback-err");
-      feedbackPopup.classList.add("feedback-close");
       popupClose();
     }
   }
