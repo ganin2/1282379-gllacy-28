@@ -95,7 +95,7 @@ function init() {
     iconImageHref: "img/pin.svg",
     iconImageSize: [80, 140],
     iconImageOffset: [-40, -140]
-  }), myMap.geoObjects.add(myPlacemark)
+  }), myMap.behaviors.disable("scrollZoom"), myMap.geoObjects.add(myPlacemark)
 }
 ymaps.ready(init);
 
